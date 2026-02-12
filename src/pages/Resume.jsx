@@ -1,6 +1,6 @@
 import { Download } from 'lucide-react'; 
 const Resume = () => {
-  const resumeImage = "public/Resume.pdf.jpg"; 
+  const resumeImage = "/preview.jpg"; 
   const resumePdf = "/Zikmang-Isah-Lekmang-Resume.pdf"; 
 
   return (
