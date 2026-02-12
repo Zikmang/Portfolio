@@ -1,6 +1,7 @@
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import TechStack from '../components/TechStack';
+import profilePic from '../assets/profile-pic.png'
 import { SiGithub, SiLinkedin } from 'react-icons/si';
 import { MdEmail } from 'react-icons/md';
 
@@ -15,8 +16,7 @@ const About = () => {
           <div className="md:col-span-5">
             <div className="sticky top-32">
               <img 
-                src="https://i.pinimg.com/736x/0c/2f/c3/0c2fc3bf1802d2044b480e7bd2cf28d4.jpg" 
-                alt="Profile" 
+                src={profilePic}
                 className="w-full h-auto object-cover grayscale hover:grayscale-0 transition-all duration-500"
               />
             </div>
@@ -33,8 +33,8 @@ const About = () => {
                 I care about how applications are built, emphasizing reusable components and clear data models alongside clean design.
               </p>
               <p className="text-xl text-gray-600 leading-relaxed">
-                I'm curious about how design and engineering work together to create effective software, and I strongly believe in user-centered design.
-                I aim to add clear value to every project through thoughtful implementation, attention to detail, and positive collaboration. I enjoy working on challenging projects that encourage learning, creativity, and meaningful innovation.
+                I deliver clear value to every project through thoughtful implementation, meticulous attention to detail, and collaborative execution. I'm driven by challenging work that promotes growth, creativity, and meaningful innovation.
+                 My goal is to integrate design and engineering to develop effective, user-centered software applications.
               </p>
             </section>
 
@@ -61,7 +61,7 @@ const About = () => {
                   <SiLinkedin size={24} />
                 </a>
                 <a 
-                  href="https://github.com/yourusername" 
+                  href="https://github.com/Zikmang" 
                   target="_blank" 
                   rel="noreferrer"
                   className="text-gray-400 hover:text-black transition-colors duration-300"

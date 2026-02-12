@@ -13,6 +13,7 @@ import cardForm from "../assets/active-state.png"
 import cardMobile from '../assets/card-mobile.png'
 import dessertGrid from "../assets/active-dessert.png"
 import mobileDessert from "../assets/mobile-dessert.png"
+import loopMobile from "../assets/loop-mobile.png"
 
 import adasheMockup from "../assets/adashe-mockup.png"
 import cropMockup from "../assets/crop-mockup.png"
@@ -241,7 +242,7 @@ export const projects = [
       }
       ],
 
-      liveUrl: "#",
+      liveUrl: "https://advice-generator-api-three.vercel.app/",
       codeUrl: '#'
     },
 
@@ -286,7 +287,7 @@ export const projects = [
         }
       ],
 
-      liveUrl: "https://conference-ticket-generator-main.vercel.app/" ,
+      liveUrl: "https://conference-ticket-generator-sooty-three.vercel.app/" ,
       codeUrl: '#'
     },
 
@@ -376,16 +377,51 @@ export const projects = [
         }
       ],
 
-      liveUrl: "https://your-live-link-here.com",
+      liveUrl: "https://interactive-card-main-form.vercel.app/",
       codeUrl: '#'
     },
     {
       id: 9,
-      title: "LOOPSTUDIO LANDING PAGE",
-      description: "A responsive landing page for loopstudio.",
+      title: "LOOPSTUDIOS LANDING PAGE",
+      description: "A responsive, immersive landing page for a VR company featuring complex grid layouts and interactive hover states.",
       date: "2025",
-      imageUrl: loopMockup,
-      liveUrl: "#",
-      codeUrl: '#'
+      role: "Frontend Developer",
+      tools: ["React", "Tailwind CSS", "CSS Grid", "Responsive Design"],
+      context: "Frontend Mentor Challenge",
+      imageUrl: loopMockup, 
+      
+      sections: {
+        challenge: {
+          title: "The Challenge",
+          paragraphs: [
+            "The primary design challenge was the 'Creations' gallery, which requires a layout shift. On mobile, it's a single column with landscape images; on desktop, it transforms into a four-column grid with portrait images. Managing these aspect ratios and source swaps without layout shifts was critical.",
+            "Additionally, the site relies heavily on hover effects (overlay gradients and text transitions) that needed to feel smooth and performant across different devices."
+          ]
+        },
+
+        solution: {
+          title: "The Solution",
+          paragraphs: [
+            "I utilized CSS Grid for the gallery layout, which allowed me to easily rearrange the items based on viewport width. For the images, I implemented the HTML `<picture>` element (or responsive utility classes) to serve different image files for mobile and desktop, improving both performance and art direction.",
+            "For the navigation, I built a custom hamburger menu that triggers a full-screen overlay on mobile, using state management to lock the body scroll when the menu is active.",
+            "I used React to build the components, I added motion to the div."
+          ]
+        }
+      },
+
+      gallery: [
+        {
+          id: 1,
+          description: "Desktop grid view with hover interactions",
+          imageUrl: loopMockup 
+        },
+        {
+          id: 2,
+          description: "Mobile responsive view with stacked layout",
+          imageUrl: loopMobile 
+        }
+      ],
+
+      liveUrl: "https://loopstudio-landing-page-8x46.vercel.app/"
     },
   ];

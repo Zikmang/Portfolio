@@ -110,7 +110,7 @@ const ProjectDetail = () => {
           </div>
         </section>
 
-        {/* GALLERY */}
+       {/* GALLERY */}
         <section 
           className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 mb-24 md:mb-32"
           aria-label="Project gallery"
@@ -118,10 +118,10 @@ const ProjectDetail = () => {
           {project.gallery.map((img) => (
             <figure 
               key={img.id}
-              className="w-full h-full aspect-video bg-gray-100 overflow-hidden rounded-lg"
+              className="w-full bg-gray-100 overflow-hidden rounded-lg"
             >
               <img 
-                className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                className="w-full h-auto object-contain hover:scale-105 transition-transform duration-500"
                 src={img.imageUrl} 
                 alt={`${project.title} - image ${img.id}`}
               />
@@ -146,20 +146,20 @@ const ProjectDetail = () => {
             </div>
             
             {/* PROJECT LINKS */}
-            {(project.liveUrl || project.codeUrl) && (
+            {(project.liveUrl) && (
               <div className="flex flex-wrap gap-4">
                 {project.liveUrl && (
                   <a 
                     href={project.liveUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-6 py-3 bg-black text-white text-sm font-bold uppercase tracking-widest hover:bg-gray-800 transition-colors rounded"
+                    className="inline-flex items-center gap-2 px-6 py-3  text-orange-800 text-sm font-bold uppercase tracking-widest hover:text-orange-300 transition-colors rounded"
                   >
                     View Project
                     <span aria-hidden="true">→</span>
                   </a>
                 )}
-                {project.codeUrl && (
+                {/* {project.codeUrl && (
                   <a 
                     href={project.codeUrl}
                     target="_blank"
@@ -169,7 +169,7 @@ const ProjectDetail = () => {
                     View Code
                     <span aria-hidden="true">→</span>
                   </a>
-                )}
+                )} */}
               </div>
             )}
           </div>
