@@ -9,14 +9,17 @@ const Navbar = () => {
 
   const navLinks = [
     { name: 'WORK', path: '/' },
-    { name: 'RESUME', path: '/resume' },
+    { name: 'RESUME', path: '/resume' }, 
     { name: 'ABOUT ME', path: '/about' },
     { name: 'CONTACT', path: '/contact' },
   ];
 
   const isActive = (path) => location.pathname === path;
-
   const closeMenu = () => setIsOpen(false);
+
+  // Styles
+  const desktopBaseClass = "text-sm font-semibold tracking-widest transition-all duration-300 pb-1";
+  const mobileBaseClass = "block px-4 py-3 text-sm font-semibold tracking-widest rounded-lg transition-all duration-200";
 
   return (
     <nav className="w-full py-6 px-6 md:px-12 bg-white sticky top-0 z-50 shadow-sm">
@@ -36,7 +39,7 @@ const Navbar = () => {
             <Link
               key={link.path}
               to={link.path}
-              className={`text-sm font-semibold tracking-widest transition-all duration-300 pb-1 ${
+              className={`${desktopBaseClass} ${
                 isActive(link.path)
                   ? 'text-black border-b-2 border-black'
                   : 'text-gray-500 hover:text-black border-b-2 border-transparent hover:border-black'
@@ -51,14 +54,8 @@ const Navbar = () => {
         <button
           onClick={() => setIsOpen(!isOpen)}
           className="md:hidden p-2 rounded-lg hover:bg-gray-100 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-gray-200"
-          aria-label={isOpen ? 'Close menu' : 'Open menu'}
-          aria-expanded={isOpen}
         >
-          {isOpen ? (
-            <X className="w-6 h-6 text-gray-900" />
-          ) : (
-            <Menu className="w-6 h-6 text-gray-900" />
-          )}
+          {isOpen ? <X className="w-6 h-6 text-gray-900" /> : <Menu className="w-6 h-6 text-gray-900" />}
         </button>
       </div>
 
@@ -74,7 +71,7 @@ const Navbar = () => {
               key={link.path}
               to={link.path}
               onClick={closeMenu}
-              className={`block px-4 py-3 text-sm font-semibold tracking-widest rounded-lg transition-all duration-200 ${
+              className={`${mobileBaseClass} ${
                 isActive(link.path)
                   ? 'text-black bg-gray-100'
                   : 'text-gray-600 hover:text-black hover:bg-gray-50'
