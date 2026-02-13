@@ -233,7 +233,7 @@ export const projects = [
       {
         id: 1,
         description: "Loading state with spinning dice animation",
-        imageUrl: adviceLoading // Screenshot of spinner
+        imageUrl: adviceMockup 
       },
       {
         id: 2,
