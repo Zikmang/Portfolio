@@ -157,59 +157,58 @@ export const projects = [
       codeUrl: 'https://github.com/Zikmang/Countries-API'
     },
 
-    {
-      id: 4,
-      title: "INTERACTIVE COMMENTS SECTION",
-      description: "A CRUD (frontend based) interactive comments interface that manages nested data structures. ",
-      date: "2025",
-      role: "Frontend Engineer",
-      tools: ["React", "JSON", "State Management", "Recursion"],
-      context: "Frontend Challenge",
-      imageUrl: commentsMockup,
+   {
+    id: 4,
+    title: "INTERACTIVE COMMENTS SECTION",
+    description: "A fully functional, recursive comment system featuring nested replies, CRUD operations, and persistent local state.",
+    date: "2024",
+    role: "Frontend Engineer",
+    tools: ["React", "Recursion", "Context API", "LocalStorage"],
+    context: "Frontend Mentor Challenge",
+    imageUrl: commentsMockup, 
 
-      sections: {
+    sections: {
       challenge: {
-      title: "The Challenge",
-      paragraphs: [
-      "Managing nested comment threads (replies to replies) is a classic computer science problem that can easily lead to complex, unmanageable code in React. The main difficulty was creating a data structure that allows infinite nesting while keeping the UI flat and performant.",
-      "Furthermore, managing the user state—ensuring users can only edit or delete their own comments, and calculating time stamps dynamically—added layers of complexity to the state logic."
-      ]
+        title: "The Challenge",
+        paragraphs: [
+          "The core complexity of this project wasn't the UI, but the data structure. Comments are a nested tree (comments have replies, which have their own replies). Managing state updates—like editing a reply nested three levels deep—is difficult without mutating the original state object.",
+          "I also needed to ensure that the user experience remained fluid, with instant feedback for upvotes and deletions, while persisting data so the conversation wasn't lost on refresh."
+        ]
       },
 
       solution: {
-      title: "The Solution",
-      paragraphs: [
-      "I utilized a recursive component pattern to render the comment tree. This allows the application to handle any depth of replies without duplicating code. For state management, I treated the JSON data as a single source of truth, creating pure functions to handle insertions, edits, and deletions within the nested arrays.",
-      "To improve perceived performance, I implemented optimistic UI updates, where the interface reflects the user's action (like posting a reply) immediately before the data is formally confirmed, creating a seamless conversational flow."
-      ]
+        title: "The Solution",
+        paragraphs: [
+          "I implemented a **Recursive Component Architecture**, where the `Comment` component renders itself for nested replies. This allows for infinite nesting depth without code duplication.",
+          "For state management, I built a custom hook that treats the comment tree as an immutable data structure. I utilized recursive traversal algorithms to locate specific comment IDs for updates (CRUD operations), ensuring that even deeply nested nodes could be edited or deleted efficiently."
+        ]
       }
-      },
-
-      gallery: [
-      {
-      id: 1,
-      description: "Main discussion thread showing nested replies and user actions",
-      imageUrl: comments
-      },
-      {
-      id: 2,
-      description: "Modal confirmation for deleting a comment",
-      imageUrl: commentsMobile
-      }
-      ],
-
-      liveUrl: "https://interactive-comment-section-six-chi.vercel.app/",
-      codeUrl: 'https://github.com/Zikmang/Interactive-Comment-Section'
     },
+
+    gallery: [
+      {
+        id: 1,
+        description: "Infinite nesting support via recursive components",
+        imageUrl: comments
+      },
+      {
+        id: 2,
+        description: "Modal confirmation for destructive actions",
+        imageUrl: commentsMobile
+      }
+    ],
+
+    liveUrl: "https://interactive-comment-section-six-chi.vercel.app/",
+  },
    {
-    id: 5, // Increment ID
+    id: 5, 
     title: "ADVICE GENERATOR API",
     description: "A data-fetching application that interacts with the Advice Slip API, featuring strict caching controls and accessible dynamic content.",
     date: "2024",
     role: "Frontend Engineer",
     tools: ["React", "Custom Hooks", "Async/Await", "CSS Animations"],
     context: "Frontend Mentor Challenge",
-    imageUrl: adviceMockup, // You need to import this image
+    imageUrl: adviceMockup, 
 
     sections: {
       challenge: {
