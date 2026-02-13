@@ -201,95 +201,94 @@ export const projects = [
       liveUrl: "https://interactive-comment-section-six-chi.vercel.app/",
       codeUrl: 'https://github.com/Zikmang/Interactive-Comment-Section'
     },
-    {
-      id: 5,
-      title: "ADVICE GENERATOR APP",
-      description: "A fun API based advice generator. Get your daily dose of motivation",
-      date: "2025",
-      role: "Frontend Engineer",
-      tools: ["React", "Fetch API", "CSS Grid", "Responsive Design"],
-      context: "Mini-Project",
-      imageUrl: adviceMockup,
+   {
+    id: 5, // Increment ID
+    title: "ADVICE GENERATOR API",
+    description: "A data-fetching application that interacts with the Advice Slip API, featuring strict caching controls and accessible dynamic content.",
+    date: "2024",
+    role: "Frontend Engineer",
+    tools: ["React", "Custom Hooks", "Async/Await", "CSS Animations"],
+    context: "Frontend Mentor Challenge",
+    imageUrl: adviceMockup, // You need to import this image
 
-      sections: {
+    sections: {
       challenge: {
-      title: "The Challenge",
-      paragraphs: [
-      "While simple on the surface, advice generators often suffer from poor UX due to layout jumps when text length changes. The challenge was to create a container that adapts smoothly to variable content lengths retrieved from an external API.",
-      "Another key aspect was robust error handling. If the API fails or the network is down, the user needs to be informed gracefully rather than seeing a broken UI."
-      ]
+        title: "The Challenge",
+        paragraphs: [
+          "The primary challenge was handling the API's caching behavior. The Advice Slip API caches individual responses for 2 seconds. A naive implementation would result in the user clicking the button and seeing no change, leading to frustration.",
+          "Additionally, dynamic text updates are often invisible to screen readers, so ensuring the app remained accessible to visually impaired users during state changes was a priority."
+        ]
       },
 
       solution: {
-      title: "The Solution",
-      paragraphs: [
-      "I built a centralized card component using CSS Grid to center content vertically and horizontally on any screen size. I implemented async/await syntax for cleaner promise handling, wrapping the fetch logic in a try/catch block to manage network errors.",
-      "To enhance the experience, I added a throttle to the 'Generate' button, preventing users from spamming the API and ensuring that the animation cycle completes before a new request is sent."
-      ]
+        title: "The Solution",
+        paragraphs: [
+          "I implemented a `useAdvice` custom hook to encapsulate the fetching logic. To solve the caching issue, I added a timestamp query parameter to bypass browser caching and implemented a button disable state during the fetch to prevent API spamming.",
+          "For accessibility, I utilized `aria-live='polite'` regions. This ensures that when the advice text updates, screen readers announce the new content automatically without the user needing to navigate back to the text element."
+        ]
       }
-      },
-
-      gallery: [
-      {
-      id: 1,
-      description: "Desktop view of the advice card with glowing dice button",
-      imageUrl: adviceScreen
-      },
-      {
-      id: 2,
-      description: "Mobile responsive view adapting to smaller viewports",
-      imageUrl: adviceMobile
-      }
-      ],
-
-      liveUrl: "https://advice-generator-api-three.vercel.app/",
-      codeUrl: '#'
     },
+
+    gallery: [
+      {
+        id: 1,
+        description: "Loading state with spinning dice animation",
+        imageUrl: adviceLoading // Screenshot of spinner
+      },
+      {
+        id: 2,
+        description: "Mobile responsive view",
+        imageUrl: adviceMobile // Screenshot of mobile view
+      }
+  ],
+
+  liveUrl: "https://advice-generator-api-three.vercel.app/",
+  
+},
 
     {
-      id: 6, 
-      title: "CONFERENCE TICKET GENERATOR",
-      description: "A fully functional ticket generator with drag-and-drop image upload and real-time form validation.",
-      date: "2025",
-      role: "Frontend Engineer",
-      tools: ["React", "Tailwind CSS", "Vite", "Regex Validation"],
-      context: "Frontend Mentor Challenge",
-      imageUrl: ticketMockup, 
+  id: 6,
+  title: "CONFERENCE TICKET GENERATOR",
+  description: "An interactive ticket generator featuring 3D holographic tilt effects, robust Zod schema validation, and fluid micro-interactions.",
+  date: "2025",
+  role: "Frontend Engineer",
+  tools: ["React", "Framer Motion", "Zod", "Vite"], 
+  context: "Frontend Mentor Challenge",
+  imageUrl: ticketMockup,
 
-      sections: {
-        challenge: {
-          title: "The Challenge",
-          paragraphs: [
-            "Building a form that feels 'alive' is difficult. The main challenge was implementing robust client-side validation for emails and file uploads (checking size and type) while providing immediate, non-intrusive feedback to the user.",
-            "Another complexity was the image handling. I needed to allow users to upload an avatar via drag-and-drop or click, preview it instantly without a backend, and ensure it persisted if the component re-rendered."
-          ]
-        },
-
-        solution: {
-          title: "The Solution",
-          paragraphs: [
-            "I utilized React's state to manage controlled inputs, using Regex patterns to validate email formats and GitHub usernames in real-time. For the image upload, I used the File API and `URL.createObjectURL()` to generate temporary preview URLs, ensuring a lag-free experience.",
-            "To make the generated ticket unique, I implemented a random ID generator and used CSS Grid to ensure the layout remains stable regardless of the length of the user's name or email."
-          ]
-        }
-      },
-
-      gallery: [
-        {
-          id: 1,
-          description: "Clean form interface with active validation states",
-          imageUrl: ticketResult 
-        },
-        {
-          id: 2,
-          description: "The generated ticket with the user's custom avatar",
-          imageUrl: mobileTicket
-        }
-      ],
-
-      liveUrl: "https://conference-ticket-generator-sooty-three.vercel.app/" ,
-      codeUrl: '#'
+  sections: {
+    challenge: {
+      title: "The Challenge",
+      paragraphs: [
+        "Forms are often boring. The goal was to transform a standard data-entry task into an engaging, high-fidelity experience. I needed to implement strict validation logic without overwhelming the user, while ensuring the application state remained performant.",
+        "A key technical challenge was separating the complex validation logic from the UI components to keep the code testable and clean, while simultaneously managing drag-and-drop file streams for the avatar upload."
+      ]
     },
+
+    solution: {
+      title: "The Solution",
+      paragraphs: [
+        "I architected a custom hook (`useFormLogic`) to isolate state management and side effects, utilizing Zod schemas for robust, type-safe validation. This separation of concerns made the code modular and easier to unit test.",
+        "For the UX, I integrated Framer Motion to create 'alive' micro-interactions. This includes a physics-based 'shake' effect on error and a 3D holographic tilt on the generated ticket that tracks mouse movement, adding a premium feel to the final result."
+      ]
+    }
+  },
+
+  gallery: [
+    {
+      id: 1,
+      description: "Smart form interface with vibration-based error feedback",
+      imageUrl: ticketResult
+    },
+    {
+      id: 2,
+      description: "The generated 3D ticket with holographic tilt effect",
+      imageUrl: mobileTicket
+    }
+  ],
+
+  liveUrl: "https://conference-ticket-generator-sooty-three.vercel.app/",
+},
 
     {
       id: 7, 
